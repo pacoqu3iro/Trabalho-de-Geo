@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feira Indus-Trial - Projeto</title>
+  
+  <!-- Importando o Tailwind CSS para o estilo ficar igualzinho ao original -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Estilos extras para a animação das abas -->
+  <style>
+    .animate-fade-in {
+      animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Oculta as abas que não estão ativas */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 font-sans">
+
+  <!-- ==========================================
+       CABEÇALHO (HEADER) - EDITE SEUS DADOS AQUI
+       ========================================== -->
+  <header class="bg-white shadow-sm sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center mb-4 md:mb-0">
+        <!-- Ícone de Carro -->
+        <svg class="w-8 h-8 text-green-600 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+        <!-- NOME DA SUA EMPRESA -->
+        <h1 class="text-2xl font-bold text-gray-800">EcoDrive Motors</h1>
+      </div>
+      <div class="text-sm text-gray-500 text-center md:text-right">
+        <!-- SEUS DADOS ESCOLARES -->
+        <p><strong>Turma 3004</strong> - Geografia</p>
+        <p>Prof. Rodrigo</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    
+    <!-- Citação do Quadro -->
+    <div class="mb-8 text-center bg-gray-100 p-6 rounded-xl italic text-gray-600 border-l-4 border-gray-300">
+      "Por que se preocupar com o amanhã, se ele acaba depois de amanhã?"
+    </div>
+
+    <!-- BOTÕES DE NAVEGAÇÃO (ABAS) -->
+    <div class="flex flex-wrap gap-2 mb-8 justify-center bg-white p-2 rounded-2xl shadow-sm border border-gray-100" id="tab-buttons">
+      
+      <button onclick="openTab('identidade')" id="btn-identidade" class="tab-btn flex items-center px-6 py-3 rounded-xl font-medium transition-all bg-green-600 text-white shadow-md transform scale-105">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
+        1. Identidade
+      </button>
+
+      <button onclick="openTab('localizacao')" id="btn-localizacao" class="tab-btn flex items-center px-6 py-3 rounded-xl font-medium transition-all bg-transparent text-gray-600 hover:bg-gray-100">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        2 & 3. Localização
+      </button>
+
+      <button onclick="openTab('impactos')" id="btn-impactos" class="tab-btn flex items-center px-6 py-3 rounded-xl font-medium transition-all bg-transparent text-gray-600 hover:bg-gray-100">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        4. Impactos
+      </button>
+
+      <button onclick="openTab('solucoes')" id="btn-solucoes" class="tab-btn flex items-center px-6 py-3 rounded-xl font-medium transition-all bg-transparent text-gray-600 hover:bg-gray-100">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        5. Soluções
+      </button>
+    </div>
+
+    <!-- CONTEÚDO DINÂMICO -->
+    <div class="min-h-[400px]">
+
+      <!-- ==========================================
+           ABA 1: IDENTIDADE
+           ========================================== -->
+      <div id="tab-identidade" class="tab-content active animate-fade-in space-y-6">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+          <div class="bg-green-100 p-6 rounded-full mb-4">
+            <svg class="w-16 h-16 text-green-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <!-- EDITE NOME, SLOGAN E SETOR AQUI -->
+          <h2 class="text-3xl font-bold text-gray-800 mb-2">BioUtilidades</h2>
+          <p class="text-xl text-gray-500 italic mb-6">"Todo lixo tem um valor."</p>
+          <div class="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full font-semibold">
+            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
+            Setor de reutilização de materiais discartados
+          </div>
+        </div>
+        <p class="text-gray-600 text-center text-sm">Projeto desenvolvido para a Feira Indus-Trial.</p>
+      </div>
+
+      <!-- ==========================================
+           ABA 2: LOCALIZAÇÃO
+           ========================================== -->
+      <div id="tab-localizacao" class="tab-content animate-fade-in space-y-6">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex items-center mb-6 border-b pb-4">
+            <svg class="w-8 h-8 text-indigo-600 mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h2 class="text-2xl font-bold text-gray-800">Localização e Defesa</h2>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">Local Escolhido:</h3>
+            <!-- EDITE O LOCAL AQUI -->
+            <p class="text-xl text-indigo-600 font-medium bg-indigo-50 p-4 rounded-lg">
+              Polo Industrial de Camaçari, Bahia
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">Justificativa (Por que aqui?):</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- EDITE AS JUSTIFICATIVAS AQUI (Copie e cole as tags <li> se precisar de mais) -->
+              <li class="flex items-start bg-gray-50 p-4 rounded-lg">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="text-gray-600">Fácil acesso a portos para exportação e importação de peças.</span>
+              </li>
+              <li class="flex items-start bg-gray-50 p-4 rounded-lg">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="text-gray-600">Mão de obra qualificada já existente na região.</span>
+              </li>
+              <li class="flex items-start bg-gray-50 p-4 rounded-lg">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="text-gray-600">Infraestrutura rodoviária e energética bem desenvolvida.</span>
+              </li>
+              <li class="flex items-start bg-gray-50 p-4 rounded-lg">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="text-gray-600">Incentivos fiscais locais para indústrias de tecnologia verde.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           ABA 3: IMPACTOS
+           ========================================== -->
+      <div id="tab-impactos" class="tab-content animate-fade-in space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Impactos Ambientais -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-red-100">
+            <div class="flex items-center mb-4 text-red-600">
+              <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+              <h3 class="text-xl font-bold">Impactos Ambientais</h3>
+            </div>
+            <ul class="space-y-3">
+              <!-- EDITE IMPACTOS AMBIENTAIS AQUI -->
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-red-400 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                <span class="text-gray-600">Oléo feito por barcos, quando limpamos os rios acabamos Utilizando barcos que deixam uma trilha de oléo no caminho</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-red-400 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                <span class="text-gray-600">Descarte de materiais pesados em frente a fábrica.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-red-400 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                <span class="text-gray-600">Alto consumo de água no resfriamento de maquinário e altos gastos nas compras de aparelhos soláres.</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Impactos Sociais -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-orange-100">
+            <div class="flex items-center mb-4 text-orange-600">
+              <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <h3 class="text-xl font-bold">Impactos Sociais</h3>
+            </div>
+            <ul class="space-y-3">
+              <!-- EDITE IMPACTOS SOCIAIS AQUI -->
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-orange-400 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                <span class="text-gray-600">Risco de desemprego estrutural devido à alta automação (robôs) e outras máquinas.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-orange-400 mr-2 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                <span class="text-gray-600">Inchaço populacional na região ao redor da fábrica.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           ABA 4: SOLUÇÕES
+           ========================================== -->
+      <div id="tab-solucoes" class="tab-content animate-fade-in space-y-6">
+        <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl shadow-sm border border-green-200">
+          <div class="flex items-center mb-6">
+            <svg class="w-8 h-8 text-green-600 mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <h2 class="text-2xl font-bold text-green-800">Soluções Sustentáveis</h2>
+          </div>
+          <p class="text-green-700 mb-6">Nossa responsabilidade social e ambiental na prática:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- EDITE AS SOLUÇÕES AQUI -->
+            <div class="bg-white/80 backdrop-blur p-4 rounded-xl flex items-center shadow-sm">
+              <div class="bg-green-200 p-2 rounded-full mr-4 flex-shrink-0">
+                <svg class="w-6 h-6 text-green-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="text-gray-800 font-medium">Limpamos rios e lagos dos resíduos que utilizamos como matéria-prima></ria-prima></span>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur p-4 rounded-xl flex items-center shadow-sm">
+              <div class="bg-green-200 p-2 rounded-full mr-4 flex-shrink-0">
+                <svg class="w-6 h-6 text-green-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="text-gray-800 font-medium">Uso de aparelhos que se alimentam de energia solar para funcionarem</span>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur p-4 rounded-xl flex items-center shadow-sm">
+              <div class="bg-green-200 p-2 rounded-full mr-4 flex-shrink-0">
+                <svg class="w-6 h-6 text-green-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="text-gray-800 font-medium">Tentativa de limpeza de rios e terras</span>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur p-4 rounded-xl flex items-center shadow-sm">
+              <div class="bg-green-200 p-2 rounded-full mr-4 flex-shrink-0">
+                <svg class="w-6 h-6 text-green-700" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <span class="text-gray-800 font-medium">Reuso de 80% do "lixo" produzidos nas fábricas e 50% dos lixos das cidades</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Botão de Voltar para a Página Principal -->
+    <div class="flex justify-center mt-12 mb-4">
+      <a href="index.html" class="flex items-center px-6 py-3 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-xl transition-all shadow-md transform hover:scale-105">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Voltar para a Página Principal
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm mt-8">
+    <p>Trabalho de Geografia feito por Paçoca e equipe Senai</p>
+  </footer>
+
+  <!-- ==========================================
+       SCRIPT QUE FAZ AS ABAS FUNCIONAREM
+       ========================================== -->
+  <script>
+    function openTab(tabName) {
+      // 1. Esconder todo o conteúdo das abas
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // 2. Voltar todos os botões para a cor cinza (inativos)
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-green-600', 'text-white', 'shadow-md', 'transform', 'scale-105');
+        btn.classList.add('bg-transparent', 'text-gray-600', 'hover:bg-gray-100');
+        // Muda a cor do ícone SVG dentro do botão inativo
+        btn.querySelector('svg').classList.remove('text-white');
+        btn.querySelector('svg').classList.add('text-gray-500');
+      });
+
+      // 3. Mostrar o conteúdo da aba clicada
+      document.getElementById('tab-' + tabName).classList.add('active');
+
+      // 4. Mudar a cor do botão clicado para verde (ativo)
+      const activeBtn = document.getElementById('btn-' + tabName);
+      activeBtn.classList.remove('bg-transparent', 'text-gray-600', 'hover:bg-gray-100');
+      activeBtn.classList.add('bg-green-600', 'text-white', 'shadow-md', 'transform', 'scale-105');
+      // Muda a cor do ícone SVG dentro do botão ativo
+      activeBtn.querySelector('svg').classList.remove('text-gray-500');
+      activeBtn.querySelector('svg').classList.add('text-white');
+    }
+  </script>
+</body>
+</html>

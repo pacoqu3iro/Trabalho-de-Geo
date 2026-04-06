@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBrisa - O futuro das embalagens</title>
+    <!-- Tailwind CSS para estilização rápida e moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons para ícones bonitos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Estilos customizados simples */
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navegação -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2 text-green-600">
+                    <i data-lucide="leaf" class="w-8 h-8"></i>
+                    <span class="font-bold text-2xl tracking-tight">EcoBrisa</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sobre" class="text-gray-600 hover:text-green-600 transition font-medium">Sobre a Empresa</a>
+                    <a href="#impactos" class="text-gray-600 hover:text-green-600 transition font-medium">Nossos Impactos</a>
+                    <a href="#produtos" class="text-gray-600 hover:text-green-600 transition font-medium">Produtos</a>
+                </div>
+                <!-- Menu Mobile (simplificado) -->
+                <div class="md:hidden flex items-center">
+                    <i data-lucide="menu" class="w-6 h-6 text-gray-600"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex flex-col justify-center items-center text-center px-4 mt-16 md:mt-0">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg">O futuro da embalagem é <span class="text-green-400">Aqui!</span></h1>
+        <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl drop-shadow-md">
+            Produzimos embalagens 100% compostáveis com nossos produtos. Substituindo o plástico por coisas que a Terra agradece.
+        </p>
+        <a href="#impactos" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+            Nossos Impactos
+        </a>
+    </header>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:space-x-12">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://images.unsplash.com/photo-1610419206270-13f56ce08ec2?auto=format&fit=crop&q=80&w=800" alt="Embalagens ecológicas" class="rounded-2xl shadow-xl w-full object-cover h-80">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Estamos aqui para modificarmos o mundo </h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        A <strong>EcoBrisa</strong> foi fundada com um propósito claro: (receber os pontos em Geografia) provar que é possível ter uma grande indústria sem atacar e destruir o planeta.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        Nós coletamos bagaço de cana-de-açúcar e cascas de mandioca de pequenos agricultores locais — materiais que seriam queimados ou descartados — e os transformamos em potes, copos e bandejas resistentes e elegantes. Ao final do uso, eles viram adubo em apenas 75-90 dias.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Impactos Ambientais (O foco principal) -->
+    <section id="impactos" class="py-20 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Como nós conservamos o meio ambiente?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Nós tentamos ao máximo usar produtos ecológicos e agrícolas para que não destruam o meio ambiente, coletando os materiais de locais que percebemos ter uma grande concentração deles; ou seja, procuramos locais que a população descarta os resíduos e "Limpamos" ele.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Impacto 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition flex flex-col items-center text-center">
+                    <div class="bg-green-100 p-4 rounded-full mb-6">
+                        <i data-lucide="recycle" class="w-10 h-10 text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Produtos</h3>
+                    <p class="text-gray-600">Usamos 100% de resíduos agrícolas como matéria-prima. Isso evita a queima de biomassa, reduzindo as emissões de gases tóxicos.</p>
+                </div>
+
+                <!-- Impacto 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition flex flex-col items-center text-center">
+                    <div class="bg-blue-100 p-4 rounded-full mb-6">
+                        <i data-lucide="droplets" class="w-10 h-10 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Água de Reuso</h3>
+                    <p class="text-gray-600">Nossa fábrica opera com um sistema de água em circuito fechado. A água usada na moldagem é filtrada e reutilizada indefinidamente. Não descartamos efluentes nos rios, ao invés disso, procuramos usar materiais encontrados neles.</p>
+                </div>
+
+                <!-- Impacto 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition flex flex-col items-center text-center">
+                    <div class="bg-yellow-100 p-4 rounded-full mb-6">
+                        <i data-lucide="sun" class="w-10 h-10 text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Energia Solar</h3>
+                    <p class="text-gray-600">O maquinário da EcoBrisa é 100% movido a energia solar através de painéis instalados no teto da fábrica. Produzimos sem usar um único watt de fontes fósseis.</p>
+                </div>
+
+                <!-- Impacto 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition flex flex-col items-center text-center">
+                    <div class="bg-teal-100 p-4 rounded-full mb-6">
+                        <i data-lucide="trash-2" class="w-10 h-10 text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Uma mão lava a outra</h3>
+                    <p class="text-gray-600">Procuramos sempre o bem estar da população e do local no qual vivem, então, caso precise ou saiba algum local que necessite de uma varredura, nos consulte, nosso email e número estão abaixo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+       <section class="py-16 bg-green-700 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Tem alguma dúdiva? </h2>
+            <p class="text-xl mb-8 text-green-100">Fornecemos informações adicionais nesta parte!</p>
+            <button 
+                onclick="window.location.href='index2.html'" 
+                class="bg-white text-green-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition">
+                Informações adicionais
+            </button>
+        </div>
+    </section>
+
+
+    <!-- Seção Call to Action (Banner) -->
+    <section class="py-16 bg-green-700 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Pronto para fazer a seu mundo mais verde?</h2>
+            <p class="text-xl mb-8 text-green-100">Fornecemos nossas embalagens ecológicas para restaurantes, supermercados e eventos que desejam zerar seu impacto ambiental.</p>
+            <button 
+                onclick="window.location.href='contato.html'" 
+                class="bg-white text-green-700 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition">
+                Contate-nos
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+            
+            <!-- Logo e Contatos (Adicionados aqui) -->
+            <div class="flex flex-col mb-6 md:mb-0">
+                <div class="flex items-center gap-2 mb-3">
+                    <i data-lucide="leaf" class="w-6 h-6 text-green-400"></i>
+                    <span class="font-bold text-xl">EcoBrisa</span>
+                </div>
+                <div class="flex flex-col space-y-2 text-gray-400 text-sm">
+                    <a href="mailto:contato@ecobrisa.com.br" class="flex items-center gap-2 hover:text-white transition">
+                        <i data-lucide="mail" class="w-4 h-4"></i> ecobrisa@gmailcom.br
+                    </a>
+                    <a href="tel:+5511987654321" class="flex items-center gap-2 hover:text-white transition">
+                        <i data-lucide="phone" class="w-4 h-4"></i> (21) 98740-4018
+                    </a>
+                </div>
+            </div>
+
+            <!-- Direitos Autorais -->
+            <div class="text-gray-400 text-sm text-center md:text-left mb-6 md:mb-0">
+                <p>&copy; 2026 EcoBrisa Logística Sustentável.</p>
+                <p>Uma empresa feita por Paçoca e sua equipe Senai.</p>
+            </div>
+
+            <!-- Redes Sociais -->
+            <div class="flex space-x-4 text-gray-400">
+                <a href="#" class="hover:text-white transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-white transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inicialização dos ícones -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
